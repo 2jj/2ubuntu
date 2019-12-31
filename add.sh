@@ -1,6 +1,12 @@
 #!/bin/bash
 
-# add user u
+# Ubuntu
+sed -ie 's/#PasswordAuthentication\syes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+sed -ie 's/UsePAM\syes/UsePAM no/g' /etc/ssh/sshd_config
+apt-get install -y unattended-upgrades apt-listchanges
+apt upgrade -y
+
+# add u
 useradd                 \
     --shell /bin/bash   \
     --create-home       \
@@ -11,12 +17,9 @@ usermod                 \
     u
 cp -r ~/.ssh /home/u/
 chown -R u:u /home/u/.ssh
-sed -ie 's/#PasswordAuthentication\syes/PasswordAuthentication no/g' /etc/ssh/sshd_config
-sed -ie 's/UsePAM\syes/UsePAM no/g' /etc/ssh/sshd_config
-    
-# Unattended upgrades
-apt-get install -y unattended-upgrades apt-listchanges
-apt upgrade -y
+
+sudo snap install node --edge --classic
+sudo snap install nvim --beta --classic
 
 # as user from here:
 function wS() { sudo -iu u bash -c "$@"; }
@@ -34,8 +37,4 @@ wS 'echo "fi" >> /home/u/.bashrc'
 # Manual stuff: pwd, nvm, node/npm, yarn, initial nvim start:
 # passwd u
 # su u
-# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash 
-# exit
-# su u
-# cd ~
-# nvm i --lts && npm i -g yarn
+
