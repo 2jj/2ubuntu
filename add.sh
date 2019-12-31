@@ -12,6 +12,7 @@ snap install node --chankknel=13/stable --classic
 npm i -g yarn
 snap install nvim --beta --classic
 snap install microk8s --classic
+snap install tree
 
 # setup u
 useradd u -ms /bin/bash
@@ -31,4 +32,4 @@ wS 'echo "if [ -z "$TMUX" ]; then" >> /home/u/.bashrc'
 wS 'echo "  tmux attach -t main || tmux new -s main" >> /home/u/.bashrc'
 wS 'echo "fi" >> /home/u/.bashrc'
 
-# manual step: sudo passwd u::
+# sudo passwd u
