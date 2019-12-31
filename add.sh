@@ -14,7 +14,7 @@ snap install nvim --beta --classic
 sudo snap install microk8s --classic
 
 # setup u
-useradd u -m
+useradd u -ms /bin/bash
 usermod -aG sudo u
 usermod -aG microk8s u
 cp -r ~/.ssh /home/u/
