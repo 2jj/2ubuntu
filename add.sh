@@ -19,6 +19,7 @@ cp -r ~/.ssh /home/u/
 chown -R u:u /home/u/.ssh
 
 sudo snap install node --edge --classic
+sudo npm i -g yarn
 sudo snap install nvim --beta --classic
 
 # as user from here:
