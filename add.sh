@@ -11,10 +11,12 @@ apt upgrade -y
 snap install node --chankknel=13/stable --classic
 npm i -g yarn
 snap install nvim --beta --classic
+sudo snap install microk8s --classic
 
 # setup u
-useradd u --shell /bin/bash --create-home
-usermod u --append --groups sudo
+useradd u -m
+usermod -aG sudo u
+usermod -aG microk8s u
 cp -r ~/.ssh /home/u/
 chown -R u:u /home/u/.ssh
 function wS() { sudo -iu u bash -c "$@"; }
