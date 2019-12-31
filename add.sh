@@ -16,8 +16,8 @@ snap install tree
 
 # setup u
 useradd u -ms /bin/bash
-usermod -aG sudo u
-usermod -aG microk8s u
+usermod -a -G sudo u
+usermod -a -G microk8s u
 cp -r ~/.ssh /home/u/
 chown -R u:u /home/u/.ssh
 function wS() { sudo -iu u bash -c "$@"; }
