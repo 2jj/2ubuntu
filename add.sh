@@ -8,7 +8,7 @@ apt install -y unattended-upgrades apt-listchanges
 apt upgrade -y
 
 # add apps
-snap install node --chankknel=13/stable --classic
+snap install node --channel=13/stable --classic
 npm i -g yarn
 snap install nvim --beta --classic
 snap install microk8s --classic
