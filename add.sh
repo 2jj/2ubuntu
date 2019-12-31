@@ -11,7 +11,7 @@ apt upgrade -y
 snap install node --chankknel=13/stable --classic
 npm i -g yarn
 snap install nvim --beta --classic
-sudo snap install microk8s --classic
+snap install microk8s --classic
 
 # setup u
 useradd u -ms /bin/bash
