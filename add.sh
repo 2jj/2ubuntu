@@ -1,28 +1,22 @@
 #!/bin/bash
 
-# Ubuntu
+# setup Ubuntu
 sed -ie 's/#PasswordAuthentication\syes/PasswordAuthentication no/g' /etc/ssh/sshd_config
 sed -ie 's/UsePAM\syes/UsePAM no/g' /etc/ssh/sshd_config
-apt-get install -y unattended-upgrades apt-listchanges
+apt update -y
+apt install -y unattended-upgrades apt-listchanges
 apt upgrade -y
 
-# add u
-useradd                 \
-    --shell /bin/bash   \
-    --create-home       \
-    u
-usermod                 \
-    --append            \
-    --groups sudo       \
-    u
+# add apps
+snap install node --chankknel=13/stable --classic
+npm i -g yarn
+snap install nvim --beta --classic
+
+# setup u
+useradd u --shell /bin/bash --create-home
+usermod u --append --groups sudo
 cp -r ~/.ssh /home/u/
 chown -R u:u /home/u/.ssh
-
-sudo snap install node --edge --classic
-sudo npm i -g yarn
-sudo snap install nvim --beta --classic
-
-# as user from here:
 function wS() { sudo -iu u bash -c "$@"; }
 wS 'mkdir /home/u/.config'
 wS 'git clone https://github.com/2jj/nvim.git /home/u/.config/nvim'
@@ -32,10 +26,7 @@ wS 'ln -sf /home/u/.config/nvim/.eslintrc.yml /home/u/.eslintrc.yml'
 wS 'ln -sf /home/u/.config/nvim/.prettierrc.yml /home/u/.prettierrc.yml'
 wS 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
 wS 'echo "if [ -z "$TMUX" ]; then" >> /home/u/.bashrc'
-wS 'echo "  tmux attach -t bb || tmux new -s bb" >> /home/u/.bashrc'
+wS 'echo "  tmux attach -t main || tmux new -s main" >> /home/u/.bashrc'
 wS 'echo "fi" >> /home/u/.bashrc'
 
-# Manual stuff: pwd, nvm, node/npm, yarn, initial nvim start:
-# passwd u
-# su u
-
+# manual step: sudo passwd u::
