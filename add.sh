@@ -35,6 +35,6 @@ wS 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm'
 wS 'echo "if [ -z "$TMUX" ]; then" >> /home/u/.bashrc'
 wS 'echo "  tmux attach -t main || tmux new -s main" >> /home/u/.bashrc'
 wS 'echo "fi" >> /home/u/.basnvim +PlugInstall +qallhrc'
-ws 'nvim +PlugInstall +qall'
+ws 'nvim +PlugInstall +qall --headless'
 
 # sudo passwd u
