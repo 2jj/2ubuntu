@@ -6,10 +6,10 @@ sed -ie 's/UsePAM\syes/UsePAM no/g' /etc/ssh/sshd_config
 apt update -y
 apt install -y unattended-upgrades apt-listchanges
 apt upgrade -y
-ufw enable
 ufw allow ssh
 ufw allow http
 ufw allow https
+ufw enable
 
 # add apps
 snap install node --channel=13/stable --classic
