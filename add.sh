@@ -9,7 +9,7 @@ apt upgrade -y
 ufw allow ssh
 ufw allow http
 ufw allow https
-ufw enable
+ufw --force enable
 
 # add apps
 snap install node --channel=13/stable --classic
