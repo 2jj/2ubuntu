@@ -7,6 +7,7 @@ apt update -y
 apt install -y unattended-upgrades apt-listchanges
 apt upgrade -y
 ufw enable
+ufw allow ssh
 ufw allow http
 ufw allow https
 
