@@ -23,6 +23,8 @@ snap install docker
 # setup u
 useradd u -ms /bin/bash
 usermod -a -G sudo u
+groupadd docker
+usermod -a -G docker u
 usermod -a -G microk8s u
 cp -r ~/.ssh /home/u/
 chown -R u:u /home/u/.ssh
@@ -40,4 +42,4 @@ wS 'echo "fi" >> /home/u/.basnvim +PlugInstall +qallhrc'
 ws 'nvim +PlugInstall +qall --headless'
 
 # sudo passwd u
-# sudo reboot
+# sudo reboot; to get u into the docker group 
