@@ -40,3 +40,4 @@ wS 'echo "fi" >> /home/u/.basnvim +PlugInstall +qallhrc'
 ws 'nvim +PlugInstall +qall --headless'
 
 # sudo passwd u
+# sudo reboot
