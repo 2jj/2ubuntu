@@ -14,11 +14,11 @@ ufw --force enable
 # add apps
 snap install node --channel=13/stable --classic
 npm i -g yarn
-sudo snap install rg
+snap install rg
 snap install nvim --beta --classic
 snap install microk8s --classic
 snap install tree
-sudo snap install docker
+snap install docker
 
 # setup u
 useradd u -ms /bin/bash
