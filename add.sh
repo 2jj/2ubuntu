@@ -18,6 +18,7 @@ sudo snap install rg
 snap install nvim --beta --classic
 snap install microk8s --classic
 snap install tree
+sudo snap install docker
 
 # setup u
 useradd u -ms /bin/bash
